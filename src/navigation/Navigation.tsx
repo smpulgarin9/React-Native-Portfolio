@@ -6,21 +6,25 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 
 // screens
-import HomeScreen from './components/Screens/HomeScreen';
-import SettingsScreen from './components/Screens/SettingsScreen';
-import StackScreen from './components/Screens/StackScreen';
+import HomeScreen from '../screens/HomeScreen';
+import SettingsScreen from '../screens/SettingsScreen';
+import StackScreen from '../screens/StackScreen';
 
 const HomeStactNavigator = createNativeStackNavigator();
 
 function MyStack() {
     return (
         <HomeStactNavigator.Navigator
-        initialRouteName="HomeScreen">
-            <HomeStactNavigator.Screen name="HomeScreen" component={HomeScreen} />
-            <HomeStactNavigator.Screen name="Stack" component={StackScreen}
-            options={{
-                headerBackTitleVisible: false,
-            }} />
+            initialRouteName="HomeScreen">
+            <HomeStactNavigator.Screen 
+                name="HomeScreen" 
+                component={HomeScreen} />
+            <HomeStactNavigator.Screen 
+                name="Stack" 
+                component={StackScreen}
+                options={{
+                    headerBackTitleVisible: false,
+                }} />
         </HomeStactNavigator.Navigator>
     );
 }

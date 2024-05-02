@@ -1,5 +1,5 @@
 import { Button, StyleSheet, Text, View } from "react-native";
-import { useCreatePostMutation } from "../services/AppApi";
+import { useCreatePostMutation } from "../src/api/AppApi";
 
 export default function CreatePost(): JSX.Element {
   const [createPost, { isLoading, isError, data }] = useCreatePostMutation();

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {View, Text, StyleSheet, Button} from 'react-native';
-import { useDeletePostMutation, useFindAllPostQuery, useUpdatePostMutation } from '../services/AppApi';
+import { useDeletePostMutation, useFindAllPostQuery, useUpdatePostMutation } from '../src/api/AppApi';
 import CreatePost from './Post';
 
 interface Props {
