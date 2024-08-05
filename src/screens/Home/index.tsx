@@ -1,13 +1,45 @@
 import React from "react";
-import { View } from "react-native";
+import { ScrollView, View } from "react-native";
 
-import { useNavigation } from "@react-navigation/native";
+// Components
+import Background from "../../components/Background";
+import CategoryItem from "../../components/HomeComponents/CategoryItem";
+import Header from "../../components/HomeComponents/Header";
 
-export default function HomeScreen(): JSX.Element {
-  const navigation = useNavigation();
+// Utils
+import { HomeScreenProps } from "../../navigation/Types";
+import { categories } from "../../utils/categories.json";
+import styles from "./style";
+
+export interface ICategories {
+  name: string;
+  image: string;
+  images: string;
+}
+
+export default function HomeScreen({
+  navigation,
+}: HomeScreenProps): JSX.Element {
+  const onPress = (item: ICategories) => {
+    const params = { item: item };
+    navigation.navigate("ListScreen", params);
+  };
 
   return (
-    <View>
-    </View>
+    <Background image={require("../../assets/background.png")}>
+      <ScrollView style={styles.scroll}>
+        <Header />
+        <View style={styles.gridContainer}>
+          {categories.map((item, index) => (
+            <CategoryItem
+              key={index}
+              index={index}
+              item={item}
+              onPress={onPress}
+            />
+          ))}
+        </View>
+      </ScrollView>
+    </Background>
   );
 }
